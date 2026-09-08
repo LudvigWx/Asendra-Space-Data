@@ -1,0 +1,5 @@
+# Asendra sky points, format 1
+# ra_hours|dec_degrees|distance_light_years|color|brightness[|id|name]
+# Gaia Catalogue of Nearby Stars, sector (-3, 0, -4), generated 2026-09-08.
+# 1 points.
+15.7787|2.963388|380.5266|#FFB27A|0.12|gaia-4424272543486837760|Gaia DR3 4424272543486837760
