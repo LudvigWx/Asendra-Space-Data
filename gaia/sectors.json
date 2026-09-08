@@ -1,0 +1,329 @@
+{
+ "formatVersion": 1,
+ "generated": "2026-09-08",
+ "sectorLightYears": 100.0,
+ "acknowledgement": "This work has made use of data from the European Space Agency (ESA) mission Gaia (https://www.cosmos.esa.int/gaia), processed by the Gaia Data Processing and Analysis Consortium (DPAC). Funding for the DPAC has been provided by national institutions, in particular the institutions participating in the Gaia Multilateral Agreement. Catalogue access via VizieR and SIMBAD, operated at CDS, Strasbourg, France.",
+ "note": "Index of the Gaia star sectors. Each sector is a cube of sectorLightYears on a side in map coordinates, and x/y/z are the cube indices: a point belongs to the sector floor(coordinate / sectorLightYears) on each axis, where the map coordinates are the ones CelestialCoordinates.EquatorialToUniverse produces. Sectors not listed here are empty; the client renders its procedural starfield there instead. Source: Gaia Catalogue of Nearby Stars (Smart et al. 2021), everything within 100 parsecs, with names from SIMBAD where one exists.",
+ "sectors": [
+  {
+   "x": 0,
+   "y": -4,
+   "z": 0,
+   "file": "s_0_-4_0.txt",
+   "count": 119,
+   "bytes": 11081
+  },
+  {
+   "x": 0,
+   "y": -3,
+   "z": 0,
+   "file": "s_0_-3_0.txt",
+   "count": 456,
+   "bytes": 41137
+  },
+  {
+   "x": 0,
+   "y": -2,
+   "z": 0,
+   "file": "s_0_-2_0.txt",
+   "count": 488,
+   "bytes": 41605
+  },
+  {
+   "x": 0,
+   "y": -1,
+   "z": 0,
+   "file": "s_0_-1_0.txt",
+   "count": 438,
+   "bytes": 34476
+  },
+  {
+   "x": 0,
+   "y": 0,
+   "z": 0,
+   "file": "s_0_0_0.txt",
+   "count": 436,
+   "bytes": 33633
+  },
+  {
+   "x": 0,
+   "y": 1,
+   "z": 0,
+   "file": "s_0_1_0.txt",
+   "count": 475,
+   "bytes": 39674
+  },
+  {
+   "x": 0,
+   "y": 2,
+   "z": 0,
+   "file": "s_0_2_0.txt",
+   "count": 389,
+   "bytes": 34409
+  },
+  {
+   "x": 0,
+   "y": 3,
+   "z": 0,
+   "file": "s_0_3_0.txt",
+   "count": 94,
+   "bytes": 8681
+  },
+  {
+   "x": 1,
+   "y": -4,
+   "z": 0,
+   "file": "s_1_-4_0.txt",
+   "count": 66,
+   "bytes": 6406
+  },
+  {
+   "x": 1,
+   "y": -3,
+   "z": 0,
+   "file": "s_1_-3_0.txt",
+   "count": 1057,
+   "bytes": 95996
+  },
+  {
+   "x": 1,
+   "y": -2,
+   "z": 0,
+   "file": "s_1_-2_0.txt",
+   "count": 1251,
+   "bytes": 108893
+  },
+  {
+   "x": 1,
+   "y": -1,
+   "z": 0,
+   "file": "s_1_-1_0.txt",
+   "count": 1272,
+   "bytes": 105208
+  },
+  {
+   "x": 1,
+   "y": 0,
+   "z": 0,
+   "file": "s_1_0_0.txt",
+   "count": 1302,
+   "bytes": 107180
+  },
+  {
+   "x": 1,
+   "y": 1,
+   "z": 0,
+   "file": "s_1_1_0.txt",
+   "count": 1334,
+   "bytes": 113911
+  },
+  {
+   "x": 1,
+   "y": 2,
+   "z": 0,
+   "file": "s_1_2_0.txt",
+   "count": 1137,
+   "bytes": 101324
+  },
+  {
+   "x": 1,
+   "y": 3,
+   "z": 0,
+   "file": "s_1_3_0.txt",
+   "count": 80,
+   "bytes": 7591
+  },
+  {
+   "x": 2,
+   "y": -4,
+   "z": 0,
+   "file": "s_2_-4_0.txt",
+   "count": 2,
+   "bytes": 380
+  },
+  {
+   "x": 2,
+   "y": -3,
+   "z": 0,
+   "file": "s_2_-3_0.txt",
+   "count": 428,
+   "bytes": 39536
+  },
+  {
+   "x": 2,
+   "y": -3,
+   "z": 1,
+   "file": "s_2_-3_1.txt",
+   "count": 5,
+   "bytes": 666
+  },
+  {
+   "x": 2,
+   "y": -2,
+   "z": 0,
+   "file": "s_2_-2_0.txt",
+   "count": 1656,
+   "bytes": 147607
+  },
+  {
+   "x": 2,
+   "y": -2,
+   "z": 1,
+   "file": "s_2_-2_1.txt",
+   "count": 59,
+   "bytes": 5606
+  },
+  {
+   "x": 2,
+   "y": -1,
+   "z": 0,
+   "file": "s_2_-1_0.txt",
+   "count": 1767,
+   "bytes": 155355
+  },
+  {
+   "x": 2,
+   "y": -1,
+   "z": 1,
+   "file": "s_2_-1_1.txt",
+   "count": 121,
+   "bytes": 11102
+  },
+  {
+   "x": 2,
+   "y": 0,
+   "z": 0,
+   "file": "s_2_0_0.txt",
+   "count": 1817,
+   "bytes": 158953
+  },
+  {
+   "x": 2,
+   "y": 0,
+   "z": 1,
+   "file": "s_2_0_1.txt",
+   "count": 98,
+   "bytes": 8923
+  },
+  {
+   "x": 2,
+   "y": 1,
+   "z": 0,
+   "file": "s_2_1_0.txt",
+   "count": 1654,
+   "bytes": 147534
+  },
+  {
+   "x": 2,
+   "y": 1,
+   "z": 1,
+   "file": "s_2_1_1.txt",
+   "count": 65,
+   "bytes": 6088
+  },
+  {
+   "x": 2,
+   "y": 2,
+   "z": 0,
+   "file": "s_2_2_0.txt",
+   "count": 472,
+   "bytes": 43081
+  },
+  {
+   "x": 2,
+   "y": 2,
+   "z": 1,
+   "file": "s_2_2_1.txt",
+   "count": 3,
+   "bytes": 467
+  },
+  {
+   "x": 2,
+   "y": 3,
+   "z": 0,
+   "file": "s_2_3_0.txt",
+   "count": 8,
+   "bytes": 927
+  },
+  {
+   "x": 3,
+   "y": -3,
+   "z": 0,
+   "file": "s_3_-3_0.txt",
+   "count": 7,
+   "bytes": 857
+  },
+  {
+   "x": 3,
+   "y": -2,
+   "z": 0,
+   "file": "s_3_-2_0.txt",
+   "count": 162,
+   "bytes": 15582
+  },
+  {
+   "x": 3,
+   "y": -2,
+   "z": 1,
+   "file": "s_3_-2_1.txt",
+   "count": 18,
+   "bytes": 1912
+  },
+  {
+   "x": 3,
+   "y": -1,
+   "z": 0,
+   "file": "s_3_-1_0.txt",
+   "count": 471,
+   "bytes": 43517
+  },
+  {
+   "x": 3,
+   "y": -1,
+   "z": 1,
+   "file": "s_3_-1_1.txt",
+   "count": 72,
+   "bytes": 6997
+  },
+  {
+   "x": 3,
+   "y": 0,
+   "z": 0,
+   "file": "s_3_0_0.txt",
+   "count": 514,
+   "bytes": 46769
+  },
+  {
+   "x": 3,
+   "y": 0,
+   "z": 1,
+   "file": "s_3_0_1.txt",
+   "count": 50,
+   "bytes": 4840
+  },
+  {
+   "x": 3,
+   "y": 1,
+   "z": 0,
+   "file": "s_3_1_0.txt",
+   "count": 122,
+   "bytes": 11718
+  },
+  {
+   "x": 3,
+   "y": 1,
+   "z": 1,
+   "file": "s_3_1_1.txt",
+   "count": 28,
+   "bytes": 2821
+  },
+  {
+   "x": 3,
+   "y": 2,
+   "z": 0,
+   "file": "s_3_2_0.txt",
+   "count": 7,
+   "bytes": 844
+  }
+ ]
+}
