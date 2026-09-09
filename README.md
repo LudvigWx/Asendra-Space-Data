@@ -55,6 +55,19 @@ photographed bodies in the solar system.
 | `bodies` | Known planets, innermost first. |
 | `firstSeen` | The day the sync first saw this object. Set once, never changed. |
 | `discoveryDate` | The year the object itself was discovered. Not the same thing. |
+| `hasJet`, `jetPositionAngleDegrees`, `jetInclinationDegrees` | Present only on the handful of active galaxies whose jet somebody has actually imaged. Absent otherwise — see below. |
+| `dormant` | Present, and true, only on a black hole with nothing falling into it. Gaia BH1 is the only one so far. |
+
+A jet needs two angles, not one. The position angle says where the jet lies on the sky,
+measured from north through east; the inclination says how far it tilts out of the sky
+towards us, with zero meaning it points straight at Earth. Only together do they fix a
+direction in space, and the difference matters: M87's jet, at 17°, nearly points at us,
+while Cygnus A's lies almost flat across the sky. `hasJet` is a separate flag because zero
+is a perfectly good value for both angles, so a zero cannot be read as "not known".
+
+Blazars carry no jet angles and do not need any. A blazar *is* an active galaxy whose jet
+happens to point at us; the application therefore aims theirs at the camera, which is not a
+trick for effect but the definition drawn out.
 
 `firstSeen` is what drives the NEW badge in the application's library panel: it compares
 that date against the last time you opened the app. There is no diffing on the client.
