@@ -40,9 +40,15 @@ Every object is one place you can travel to: a planetary system, an asteroid, a 
 hole, a galaxy. The hand-picked landmarks come first, then everything else from nearest
 to farthest.
 
+Asteroids get in one of three ways: they are at least 120 km across, they pass close to
+Earth in the current window, or a spacecraft has been to them. That last list is written
+by hand in `sync/sources/asteroids.py`, because "somebody went and looked at it" is not
+something a diameter can tell you — Bennu is half a kilometre wide and one of the most
+photographed bodies in the solar system.
+
 | Field | Meaning |
 |---|---|
-| `id` | Stable key. Never reused, never renamed. |
+| `id` | Stable key. Never reused, never renamed. The application also uses it to look up a real 3D model, so renaming one silently changes how that object looks. |
 | `rightAscensionHours`, `declinationDegrees`, `distanceLightYears` | Position, ICRS. |
 | `radiusAstronomicalUnits` | Real physical radius of `primaryBody`. For black holes this is the Schwarzschild radius, so the sphere you fly up to is the event horizon at true scale. |
 | `markerAngularSizeDegrees` | Floor on how small the object may appear on screen. |
