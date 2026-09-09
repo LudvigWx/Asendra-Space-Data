@@ -12,7 +12,7 @@ private repository.
 | File | What it is | Rebuilt |
 |---|---|---|
 | `space-objects.json` | Everything you can click on and travel to. | Nightly |
-| `space-points.txt` | The asteroid belt, as a point cloud. | Nightly |
+| `space-orbits.txt` | The asteroid belt, as orbital elements. | Nightly |
 | `gaia/sectors.json` | Index of the star sectors below. | Monthly |
 | `gaia/s_<x>_<y>_<z>.txt` | Real nearby stars, one file per cube of space. | Monthly |
 
@@ -24,11 +24,15 @@ derives XYZ from those at load time, in astronomical units, with Earth at the or
 Nothing is pre-projected or compressed, and there is never a second set of coordinates
 that can drift out of step with the first.
 
-One thing here does move. Asteroids and dwarf planets orbit the Sun, so their positions
-are a **snapshot** computed for the `generated` date in the file — from the orbital
-elements JPL publishes, since a catalogue cannot hand out a fixed direction for something
-that changes every night. A day of drift is about an arcminute, which is nothing on a map
-that spans light-years.
+One thing here does move. Asteroids and dwarf planets orbit the Sun, so the positions in
+`space-objects.json` are a **snapshot** computed for the `generated` date in the file —
+from the orbital elements JPL publishes, since a catalogue cannot hand out a fixed
+direction for something that changes every night. A day of drift is about an arcminute,
+which is nothing on a map that spans light-years.
+
+The belt in `space-orbits.txt` is the exception to the exception: it carries the elements
+themselves and no positions at all, so the client can place it at any moment rather than
+only at last night's.
 
 ## space-objects.json
 
@@ -51,16 +55,30 @@ that date against the last time you opened the app. There is no diffing on the c
 
 ## The point files
 
-`space-points.txt` and the Gaia sectors hold objects that are too numerous to be
+`space-orbits.txt` and the Gaia sectors hold objects that are too numerous to be
 catalogue entries — 26,000 named minor planets, 331,000 nearby stars. They are drawn as
-point clouds and cannot be clicked. The format is one record per line, fields separated
-by a vertical bar, `#` for comments:
+point clouds and cannot be clicked. Both are plain text rather than JSON, because the
+application parses them at runtime, on the main thread, while the camera is moving. One
+record per line, fields separated by a vertical bar, `#` for comments.
+
+The Gaia sectors say where a star is, and that is enough: a star does not move so much as
+a pixel in ten thousand years.
 
     ra_hours|dec_degrees|distance_light_years|colour|brightness[|id|name]
 
-Plain text rather than JSON because the application parses these at runtime, on the main
-thread, while the camera is moving. The last two fields exist only in the Gaia sectors,
-where a star close to where you are standing gets promoted to a real, clickable object.
+The last two fields appear only in the Gaia sectors, where a star close to where you are
+standing gets promoted to a real, clickable object.
+
+`space-orbits.txt` says instead how each asteroid *moves*, because an asteroid at 2.9 AU
+goes round in four and a half years, and the map can run time faster than it really goes.
+Positions would freeze the belt in place while the planets swept past it. These are
+osculating elements straight from JPL's Small-Body Database, unrounded, and the client
+works out where each rock is for whatever moment it is showing:
+
+    a_au|e|i_deg|node_deg|peri_deg|mean_anomaly_deg|epoch_jd|colour|brightness
+
+A side effect worth having: this file has stopped rewriting itself every night. Positions
+changed daily; elements do not change from one year to the next.
 
 ## The Gaia sectors
 
