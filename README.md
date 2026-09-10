@@ -57,6 +57,7 @@ photographed bodies in the solar system.
 | `discoveryDate` | The year the object itself was discovered. Not the same thing. |
 | `hasJet`, `jetPositionAngleDegrees`, `jetInclinationDegrees` | Present only on the handful of active galaxies whose jet somebody has actually imaged. Absent otherwise — see below. |
 | `dormant` | Present, and true, only on a black hole with nothing falling into it. Gaia BH1 is the only one so far. |
+| `planets` | Exoplanet systems only: one generated record per planet, in the same order as `bodies`. See below. |
 
 A jet needs two angles, not one. The position angle says where the jet lies on the sky,
 measured from north through east; the inclination says how far it tilts out of the sky
@@ -71,6 +72,44 @@ trick for effect but the definition drawn out.
 
 `firstSeen` is what drives the NEW badge in the application's library panel: it compares
 that date against the last time you opened the app. There is no diffing on the client.
+
+### The generated worlds
+
+Exoplanets have no photographs. They are too far away and too close to the glare of their
+own stars, and that will not change soon. What they do have is a radius, sometimes a mass,
+sometimes an equilibrium temperature, and a host star with a spectral class — and from
+those, an illustrator can make a defensible picture. That is what the `planets` block is:
+the same process an artist follows, written down as rules so it runs on every planet in the
+catalogue instead of on the dozen somebody had time to paint.
+
+Each entry carries two things at once. The appearance — `worldClass`, `surface`, `detail`,
+`paletteHex` — and, under `life`, a speculative organism built from the same numbers.
+
+| Field | What it is |
+|---|---|
+| `worldClass` | `rocky`, `super-earth`, `mini-neptune`, `ice-giant`, `gas-giant`. From radius, with density allowed to overrule it. Absent when neither radius nor mass is known. |
+| `surface` | What it looks like: `molten`, `scorched`, `desert`, `barren`, `ocean`, `ice`, `frozen`, `haze`, `bands`, `storms`. Kept separate from the class on purpose — size says what a planet is, temperature says what it looks like. |
+| `detail` | `measured` (somebody has taken a spectrum of the air), `estimated` (radius, mass and temperature all known), `class only` (size and nothing else). Shown in the application beside every planet's name. |
+| `paletteHex` | Three tones — shadow, midtone, highlight — already tinted by the host star's colour and dimmed by how much visible light it actually puts out. Where the air has been measured, its dominant absorber tints them again: methane blue, photochemical haze brown, sulphur yellow. |
+| `seed` | A stable hash of the planet's name. Everything that varies is drawn from it, so the same planet looks the same every night and two planets in one system never look alike. |
+| `temperatureKelvin` | The measured equilibrium temperature. |
+| `surfaceTemperatureKelvin` | Estimated: the above plus a greenhouse effect that follows from the pressure class. Earth's is 255 K and 288 K, and that difference is an ocean rather than a snowball. Both are published rather than one replacing the other. |
+| `pressure`, `pressureBar` | `none`, `trace`, `thin`, `thick`, `crushing`, and the order of magnitude each stands for. Absent for giants, which have no surface to measure it at. |
+| `atmosphere`, `atmosphereNote` | Present only for the ten planets whose air has actually been observed. **An empty list is not the same as an absent one:** it means somebody looked and found nothing, which is a real result and gives bare rock. |
+| `life.present` | False for most planets, with `life.reason` naming the measurement that rules it out. |
+| `life.bodyPlan`, `symmetry`, `limbs`, `heightMetres` | The shape, from gravity and from whether it lives on land, in a sea, or in a giant's cloud decks. |
+| `life.breathing`, `solvent`, `pigment`, `paletteHex` | The chemistry, from the atmosphere where it is measured and from the class where it is not, and the colour, from the host star's spectrum. |
+| `life.description` | Two sentences, written by a small grammar rather than a language model. Deterministic from the seed. |
+
+**None of this is a prediction, and the application says so on screen.** The class boundaries
+are established exoplanet science (the radius gap of Fulton et al. 2017; the mass-radius
+relation of Chen & Kipping 2017), and the pigment colours follow Kiang et al. 2007 on how
+photosynthesis would adapt to a red dwarf's light. The picture drawn from them is an
+interpretation. The organism is frank speculation, built on rules that are plausible rather
+than tested, and it is labelled as such wherever it is shown.
+
+Consumers other than the application should treat `worldClass`, `surface` and `detail` as
+the useful part, and `life` as what it says on the tin.
 
 ## The point files
 
